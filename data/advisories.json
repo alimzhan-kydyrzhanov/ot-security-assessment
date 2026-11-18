@@ -1,0 +1,7 @@
+[
+  {"id": "SYN-ADV-2026-001", "vendor": "LogiCtrl", "model": "LC-1500", "fixed_in": "2.0.0", "cvss": 9.8, "title": "Unauthenticated firmware upload (synthetic)"},
+  {"id": "SYN-ADV-2026-002", "vendor": "ControlWorks", "model": "CW-SCADA", "fixed_in": "5.2.0", "cvss": 7.5, "title": "OPC UA denial of service (synthetic)"},
+  {"id": "SYN-ADV-2026-003", "vendor": "PanelTech", "model": "PT-HMI-10", "fixed_in": "2.4.0", "cvss": 6.1, "title": "Web UI XSS (synthetic)"},
+  {"id": "SYN-ADV-2026-004", "vendor": "SenseIt", "model": "TH-200", "fixed_in": "1.1.0", "cvss": 8.1, "title": "Hard-coded MQTT credentials (synthetic)"},
+  {"id": "SYN-ADV-2026-005", "vendor": "DataSoft", "model": "HistCore", "fixed_in": "3.2.0", "cvss": 6.5, "title": "SQL injection in report module (synthetic)"}
+]

@@ -1,0 +1,14 @@
+asset_id,hostname,asset_type,ip,vlan,vendor,model,firmware,os,open_ports,criticality,owner
+A001,it-ws-01,IT Workstation,10.10.10.21,10,GenericPC,Desk-5,,Windows 11,"135,445",2,IT Service Desk
+A002,dmz-hist-web,Historian Web,10.50.0.10,50,DataSoft,HistWeb,3.2.0,Linux,"443",3,OT Team
+A003,ops-historian,Historian,10.30.0.15,30,DataSoft,HistCore,3.1.4,Windows Server 2019,"1433,3389",4,OT Team
+A004,ops-eng-ws,Engineering Workstation,10.30.0.40,30,GenericPC,Eng-7,,Windows 10,"3389",4,Automation
+A005,scada-srv-01,SCADA Server,10.20.0.5,20,ControlWorks,CW-SCADA,5.0.1,Windows Server 2016,"4840,3389",5,Automation
+A006,hmi-line-1,HMI,10.20.0.31,20,PanelTech,PT-HMI-10,2.4.0,Embedded Linux,"80,5900",4,Production Line 1
+A007,plc-granulator,PLC,10.21.0.11,21,LogiCtrl,LC-1500,1.8.2,RTOS,"502,23",5,Production Line 1
+A008,plc-tablet-press,PLC,10.21.0.12,21,LogiCtrl,LC-1500,2.1.0,RTOS,"502",5,Production Line 1
+A009,dcs-ctrl-01,DCS Controller,10.21.0.20,21,ProcessOne,P1-Ctrl,7.3.0,RTOS,"502,21",5,Utilities
+A010,iot-temp-01,IoT Sensor,10.60.0.51,60,SenseIt,TH-200,1.0.3,RTOS,"80,1883",3,Facilities
+A011,iot-humid-02,IoT Sensor,10.21.0.77,21,SenseIt,TH-200,1.0.3,RTOS,"80,1883",3,
+A012,plc-packaging,PLC,10.20.0.90,20,LogiCtrl,LC-1200,4.0.0,RTOS,"502",4,Packaging
+A013,scada-srv-02,SCADA Server,10.20.0.5,20,ControlWorks,CW-SCADA,5.0.1,Windows Server 2016,"4840",5,Automation

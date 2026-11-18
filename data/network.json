@@ -1,0 +1,30 @@
+{
+  "site": "Synthetic Pharma Manufacturing Site A (fictional data)",
+  "vlans": [
+    {"id": 10, "name": "Enterprise IT", "subnet": "10.10.10.0/24", "purdue_level": 4, "zone": "Enterprise"},
+    {"id": 50, "name": "OT DMZ", "subnet": "10.50.0.0/24", "purdue_level": 3.5, "zone": "DMZ"},
+    {"id": 30, "name": "Site Operations", "subnet": "10.30.0.0/24", "purdue_level": 3, "zone": "Operations"},
+    {"id": 20, "name": "Supervisory (SCADA/HMI)", "subnet": "10.20.0.0/24", "purdue_level": 2, "zone": "Control"},
+    {"id": 21, "name": "Basic Control (PLC/DCS)", "subnet": "10.21.0.0/24", "purdue_level": 1, "zone": "Control"},
+    {"id": 60, "name": "IoT Sensors", "subnet": "10.60.0.0/24", "purdue_level": 1, "zone": "IoT"}
+  ],
+  "routes": [
+    {"destination": "10.10.10.0/24", "next_hop": "core-sw", "via_firewall": false},
+    {"destination": "10.50.0.0/24", "next_hop": "fw-ot", "via_firewall": true},
+    {"destination": "10.30.0.0/24", "next_hop": "fw-ot", "via_firewall": true},
+    {"destination": "10.20.0.0/16", "next_hop": "fw-ot", "via_firewall": true},
+    {"destination": "10.21.0.0/24", "next_hop": "fw-ot", "via_firewall": true},
+    {"destination": "10.60.0.0/24", "next_hop": "core-sw", "via_firewall": false},
+    {"destination": "0.0.0.0/0", "next_hop": "null", "via_firewall": false}
+  ],
+  "firewall_rules": [
+    {"name": "IT-to-DMZ-historian-web", "src": "10.10.10.0/24", "dst": "10.50.0.10/32", "proto": "tcp", "port": 443, "action": "allow"},
+    {"name": "DMZ-pulls-from-historian", "src": "10.50.0.0/24", "dst": "10.30.0.0/24", "proto": "tcp", "port": 1433, "action": "allow"},
+    {"name": "Ops-to-SCADA-OPCUA", "src": "10.30.0.0/24", "dst": "10.20.0.0/24", "proto": "tcp", "port": 4840, "action": "allow"},
+    {"name": "SCADA-to-PLC-Modbus", "src": "10.20.0.0/24", "dst": "10.21.0.0/24", "proto": "tcp", "port": 502, "action": "allow"},
+    {"name": "TEMP-vendor-remote-access", "src": "10.10.10.0/24", "dst": "10.21.0.0/24", "proto": "tcp", "port": 502, "action": "allow"},
+    {"name": "Engineering-legacy-telnet", "src": "10.30.0.0/24", "dst": "10.21.0.0/24", "proto": "tcp", "port": 23, "action": "allow"},
+    {"name": "Troubleshooting-any", "src": "any", "dst": "10.20.0.0/24", "proto": "any", "port": "any", "action": "allow"},
+    {"name": "Default-deny", "src": "any", "dst": "any", "proto": "any", "port": "any", "action": "deny"}
+  ]
+}
